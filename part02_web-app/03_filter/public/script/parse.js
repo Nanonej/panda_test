@@ -52,7 +52,6 @@ function getData(file) {
 }
 
 var getDataFromJson = function() {
-	console.log("Reloading!");
 	getData('db/data.json');
 }
 
