@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+	font-size: 28px;
+	text-align: center;
+	margin: 10px;
+}
+
+p {
+	font-family: helvetica;
+	font-size: 16px;
+}
+
+.champCell {
+	display: inline-block;
+	width: 100px;
+	margin: 5px;
+	text-align: center;
+	/*padding: 0.5%;*/
+}
+
+.champCell p {
+	margin: 5px 0px 0px 0px;
+	padding: 0px;
+}
+
+.champCell img {
+	width: 100px;
+}
+
+#grid {
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}

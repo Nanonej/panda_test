@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			"use strict"
+			function getData(file) {
+				var rawFile = new XMLHttpRequest();
+				rawFile.open("GET", file, false);
+				rawFile.onreadystatechange = function () {
+					if (rawFile.readyState === 4)
+						if (rawFile.status === 200 || rawFile.status == 0) {
+						    var lolData = JSON.parse(rawFile.responseText);
+							var min = lolData.champions[0].stats.armor + 18 * lolData.champions[0].stats.armorperlevel;
+							for (var i = 0; i < lolData.champions.length; i++) {
+								var armormax = lolData.champions[i].stats.armor + 18 * lolData.champions[i].stats.armorperlevel;
+								if (armormax < min)
+									min = armormax;
+							}
+							for (var j = 0; j < lolData.champions.length; j++) {
+								var armormax = lolData.champions[j].stats.armor + 18 * lolData.champions[j].stats.armorperlevel;
+								if (armormax <= min)
+									console.log(lolData.champions[j].name + " armor at lvl 18: " + armormax);
+							}
+						}
+				}
+				rawFile.send(null);
+			}
+			getData('https://gist.githubusercontent.com/anonymous/64d1baad47b42b39feeb7a28f73d7eda/raw/e4fc0853cdb650d8ae3512b09be62cbb34884c91/DATA.json');
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

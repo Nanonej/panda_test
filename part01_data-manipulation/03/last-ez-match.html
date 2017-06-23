@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			"use strict"
+			function getData(file) {
+				var rawFile = new XMLHttpRequest();
+				rawFile.open("GET", file, false);
+				rawFile.onreadystatechange = function () {
+					if (rawFile.readyState === 4)
+						if (rawFile.status === 200 || rawFile.status == 0) {
+						    var lolData = JSON.parse(rawFile.responseText);
+							for (var i = 0; i < lolData.champions.length; i++)
+								if (lolData.champions[i].name == "Ezreal")
+									var id = lolData.champions[i].id;
+							var last = 0;
+							for (i = 0; i < lolData.matches.length; i++)
+								if ((lolData.matches[i].champion == id) && (lolData.matches[i].timestamp > last))
+									last = lolData.matches[i].timestamp;
+							for (i = 0; i < lolData.matches.length; i++)
+								if (lolData.matches[i].champion == id && (lolData.matches[i].timestamp == last))
+									console.log("Match id of the last time Ezreal was played: " + lolData.matches[i].matchId);
+						}
+				}
+				rawFile.send(null);
+			}
+			getData('https://gist.githubusercontent.com/anonymous/64d1baad47b42b39feeb7a28f73d7eda/raw/e4fc0853cdb650d8ae3512b09be62cbb34884c91/DATA.json');
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
