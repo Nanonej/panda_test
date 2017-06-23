@@ -8,4 +8,4 @@
 
 1.3 The match id of the last time Ezreal was played is 529368.
 
-1.4 The most played champions in all the given matches are Malphite and Poppywith 114 matches each.
+1.4 The most played champions in all the given matches are Malphite and Poppy with 114 matches each.
